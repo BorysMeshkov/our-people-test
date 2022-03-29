@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import theme from '../../common/theme';
 import Cell from '../Cell';
 
 interface MapProps {
@@ -13,7 +12,7 @@ const RowWrapper = styled.div`
 `;
 
 const Map: FC<MapProps> = ({ row }) => {
-  const cells = row.map((item) => <Cell value={item} />);
+  const cells = row.map((item) => <Cell value={item} key={Math.random()} />);
   return <RowWrapper>{cells}</RowWrapper>;
 };
 

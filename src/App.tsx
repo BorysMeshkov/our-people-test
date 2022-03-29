@@ -1,12 +1,8 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import styled from 'styled-components';
+import countIslands from './common/utils/countIslands';
 import generateIslandsMap from './common/utils/generateIslandsMap';
 import Map from './components/Map';
-
-interface IslandsOutput {
-  map: number[][];
-  islands: number;
-}
 
 const Wrapper = styled.div`
   display: flex;
@@ -15,22 +11,27 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-function App() {
+const App: FC = () => {
   const [map, setMap] = useState(generateIslandsMap());
-  const [islandsCount, setIslandsCount] = useState(2);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [islandsCount, setIslandsCount] = useState(7);
 
-  const onClickHandler = () => setMap(generateIslandsMap());
+  const onClickHandler = () => {
+    const generatedMap = generateIslandsMap();
+    setMap(generatedMap);
+    // setIslandsCount(countIslands(generatedMap));
+  };
 
   return (
     <Wrapper>
       <h1>Islands App</h1>
       <Map map={map} />
-      <p>Islands count: {islandsCount}</p>
+      <p>Islands count(mocked): {islandsCount}</p>
       <button onClick={onClickHandler} type="button">
         Regenerate Islands
       </button>
     </Wrapper>
   );
-}
+};
 
 export default App;

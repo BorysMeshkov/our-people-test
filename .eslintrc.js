@@ -28,7 +28,7 @@ module.exports = {
     sourceType: 'module',
     project: './tsconfig.json',
   },
-  ignorePatterns: ['.eslintrc.js',  'src/**/**.stories.tsx'],
+  ignorePatterns: ['.eslintrc.js'],
   rules: {
     'linebreak-style': 'off',
     'react/prop-types': 'off',
