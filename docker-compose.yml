@@ -1,0 +1,8 @@
+version: '3'
+services:
+  count-islands:
+    build: .
+    ports: 
+      - "4000:3000"
+    volumes:
+      - .:/usr/app
